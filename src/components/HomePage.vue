@@ -93,15 +93,12 @@
     <v-main class="ma-5 pa-2">
       <v-container fluid grid-list-xl>
         <v-layout wrap justify-space-around>
-          <v-flex v-for="movie in movies" :key="movie.id">
+          <v-flex v-for="movie in movies" :key="movie.id" class="flex-empty">
             <v-card color="gray" dark width="350px" height="350px">
               <v-card-text>{{ movie.title }}</v-card-text>
               <v-img :src="movie.url" height="250px" />
               <v-card-text > Duração: {{ movie.duration }}</v-card-text>
             </v-card>
-          </v-flex>
-          <v-flex v-for="image in images" :key="image.num" class="flex-empty">
-            <div></div>
           </v-flex>
         </v-layout>
       </v-container>
@@ -202,10 +199,6 @@ export default {
   },
 
   data: () => ({
-    images: Array.from(new Array(29)).map((e, i) => ({
-      num: i + 1,
-      src: `https://picsum.photos/300/400?image=${i + 1}`
-    })),
     filter: {},
     dialog: false,
     drawer: null,
