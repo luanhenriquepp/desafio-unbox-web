@@ -100,9 +100,6 @@
               <v-card-text > Duração: {{ movie.duration }}</v-card-text>
             </v-card>
           </v-flex>
-          <v-flex v-for="image in images" :key="image.num" class="flex-empty">
-            <div></div>
-          </v-flex>
         </v-layout>
       </v-container>
     </v-main>
