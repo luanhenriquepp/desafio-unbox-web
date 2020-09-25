@@ -102,7 +102,13 @@
           </v-flex>
         </v-layout>
       </v-container>
+
     </v-main>
+    <v-pagination
+        v-if="pagination.total > 1"
+        v-model="currentPage"
+        :length="pagination.last_page"
+        color="black"/>
     <v-dialog
         v-model="dialog"
         width="800px"
@@ -199,6 +205,7 @@ export default {
   },
 
   data: () => ({
+    currentPage: 1,
     filter: {},
     dialog: false,
     drawer: null,
@@ -227,6 +234,7 @@ export default {
     getMovies (filter = '') {
       this.$http.get('/movie' + filter)
         .then(response => {
+          this.pagination = response.data.data
           this.movies = response.data.data.data
         })
         .catch(error => console.log(error))
