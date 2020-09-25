@@ -68,7 +68,7 @@
     <v-app-bar
         :clipped-left="$vuetify.breakpoint.lgAndUp"
         app
-        color="purple darken-3"
+        color="#5d1499"
         dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -94,7 +94,7 @@
       <v-container fluid grid-list-xl>
         <v-layout wrap justify-space-around>
           <v-flex v-for="movie in movies" :key="movie.id" class="flex-empty">
-            <v-card color="purple darken-3" dark width="350px" height="350px">
+            <v-card color="#5d1499" dark width="350px" height="350px">
               <v-card-text>{{ movie.title }}</v-card-text>
               <v-img :src="movie.url" height="250px" />
               <v-card-text > Duração: {{ movie.duration }}</v-card-text>
@@ -105,10 +105,10 @@
 
     </v-main>
     <v-pagination
-        v-if="pagination.total > 1"
+        v-if="pagination.total > pagination.per_page"
         v-model="currentPage"
         :length="pagination.last_page"
-        color="purple darken-3"/>
+        color="#5d1499"/>
   </v-app>
 </template>
 
